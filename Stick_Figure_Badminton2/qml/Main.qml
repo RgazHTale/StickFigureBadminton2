@@ -12,7 +12,7 @@ GameWindow {
   // create and remove entities at runtime
   EntityManager {
     id: entityManager
-    entityContainer: gameScene
+    //entityContainer: gameScene
   }
 
   FontLoader {
@@ -23,6 +23,32 @@ GameWindow {
   // menu scene
   MenuScene {
     id: menuScene
+    onSettingsPressed: window.state = "settings"
+
+    onBackButtonPressed: {
+         nativeUtils.displayMessageBox(qsTr("Really quit the game?"), "", 2);
+    }
+
+    Connections {
+      target: nativeUtils
+      onMessageBoxFinished: {
+        if (accepted) {
+          Qt.quit()
+        }
+      }
+    }
+  }
+
+  //game scene
+  //实例化之后才能用
+  GameScene {
+      id:gameScene
+  }
+
+  //credits scene
+  SettingScene {
+      id: settingScene
+      onBackButtonPressed: window.state = "menu"
   }
 
   state: "menu"

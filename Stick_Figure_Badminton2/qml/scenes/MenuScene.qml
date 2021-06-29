@@ -12,6 +12,7 @@ SceneBase {
     signal exitPressed
 
     property alias ambienceMusic: ambienceMusic
+    signal settingsPressed
 
     //play background music
     BackgroundMusic{
@@ -48,7 +49,10 @@ SceneBase {
         anchors.topMargin: 470
         anchors.leftMargin: 725
         text: "Start"
-        onClicked: onClickedMusic.play()
+        onClicked: {
+            onClickedMusic.play()
+            window.state = "game"
+        }
         color: "transparent"
         buttonText.color: "white"
         buttonText.opacity: 1
@@ -64,11 +68,29 @@ SceneBase {
       anchors.topMargin: 540
       anchors.leftMargin: 725
       text: "Quit"
-      onClicked: onClickedMusic.play()
       color: "transparent"
       buttonText.color: "white"
       buttonText.opacity: 1
       buttonText.font.pixelSize: 70
       buttonText.font.family: standardFont.name
+      onClicked: {
+          Qt.quit()
+      }
+    }
+
+    //Setting
+    MenuButton {
+        id:setting
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.topMargin: 550
+        anchors.leftMargin: 30
+        label.width: 65
+        label.height: 65
+        label.source: "../../assets/res/Settings.png"
+        anchors.bottom: parent.bottom
+        onClicked: {
+            window.state = "settings"
+        }
     }
 }

@@ -61,4 +61,10 @@ macx {
 }
 
 DISTFILES += \
-    qml/com
+    qml/com \
+    qml/entities/Badminton.qml \
+    qml/entities/Net.qml \
+    qml/entities/Player1.qml \
+    qml/entities/Player2.qml \
+    qml/scenes/GameScene.qml \
+    qml/scenes/SettingScene.qml
