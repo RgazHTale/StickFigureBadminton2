@@ -5,7 +5,7 @@ Item{
     id:player2
 
     property int contacts: 0
-    state: contacts > 0 ? "walking" : "jumping"
+    state: contacts > 0 ? "standing" : "jumping"
 
     Image {
         //玩家2击球
@@ -29,16 +29,33 @@ Item{
         source: "../../assets/res/player2runright/player2runright.png"
         visible: false
     }
+    Image {
+        id: player2jump
+        source: "../../assets/res/jumpIMG/jumpleft.png"
+        visible: false
+    }
+    Image {
+        id: player2stand
+        source: "../../assets/res/standleft.png"
+        visible: false
+    }
 
     //精灵表单，用于表示player的各种动作
     EntityBase{
           x: 700
           y: 405
+          entityType: "player"
 
-          BoxCollider{
-            id:player2Collider
-            width: 150
-            height: 150
+          PolygonCollider {
+            id: player2Collider
+
+            vertices: [
+               Qt.point(65,0),
+               Qt.point(70,150),
+               Qt.point(75,150),
+               Qt.point(70,0)
+            ]
+
             fixedRotation: true
             // apply the horizontal value of the TwoAxisController as force to move the player left and right
             force: Qt.point(controller2.xAxis*170*32,0)
@@ -47,18 +64,35 @@ Item{
               if(linearVelocity.x > 170) linearVelocity.x = 170
               if(linearVelocity.x < -170) linearVelocity.x = -170
             }
+            fixture.onBeginContact: {
+              var otherEntity = other.getBody().target
+              if(otherEntity.entityType === "ground") player2.contacts++
+            }
+            fixture.onEndContact: {
+              var otherEntity = other.getBody().target
+              if(otherEntity.entityType === "ground") player2.contacts--
+            }
           }
 
           SpriteSequence {
           id: sequence
-          width: 100
-          height: 100
+          width: 150
+          height: 150
           running: false
           sprites: [
-             Sprite {
+              Sprite {
+                    name: "stand"
+                    frameCount: 1
+                    frameRate: 1
+
+                    frameWidth: player2stand
+                    frameHeight: player2stand
+                    source: player2stand.source
+               },
+              Sprite {
                   name: "beatleft"
                   frameCount: 4
-                  frameRate: 40
+                  frameRate: 15
 
                   frameWidth: beatleftImage.width/4//单位是像素
                   frameHeight: beatleftImage.height
@@ -67,7 +101,7 @@ Item{
               Sprite {
                   name: "hitleft"
                   frameCount: 5
-                  frameRate: 40
+                  frameRate: 15
 
                   frameWidth: hitleftImage.width/5//单位是像素
                   frameHeight: hitleftImage.height
@@ -90,6 +124,15 @@ Item{
                   frameWidth: player2runrightImage.width/5
                   frameHeight: player2runrightImage.height
                   source: "../../assets/res/player2runright/player2runright.png"
+              },
+              Sprite {
+                name: "jumpleft"
+                frameCount: 1
+                frameRate: 1
+
+                frameWidth: player2jump
+                frameHeight: player2jump
+                source: player2jump.source
               }
           ]
         }
@@ -110,12 +153,13 @@ Item{
         }
     }
 
-    function palyer2Contorl(){
+    function player2Contorl(){
         switch(arguments[0])
          {
          case "up":
-             sequence.running = false;
              jump();
+             sequence.jumpTo("jumpleft");
+             sequence.running = true;
              break;
          case "down":
              sequence.jumpTo("beatleft");
@@ -135,15 +179,14 @@ Item{
     }
 
     function jump() {
-      console.debug("jump requested at player.state " + state)
-      if(player.state === "walking") {
-        console.debug("do the jump")
+      if(player2.state === "standing") {
         // for the jump, we simply set the upwards velocity of the collider
-        collider.linearVelocity.y = -420
+        player2Collider.linearVelocity.y = -420
       }
     }
 
     function keyRelessed(){
+        sequence.jumpTo("stand");
         sequence.running = false;
     }
 }

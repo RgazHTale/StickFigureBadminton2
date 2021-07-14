@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Felgo 3.0
 import "../common"
 import "../entities"
+import "../game"
 
 SceneBase {
     id:gameScene
@@ -10,22 +11,8 @@ SceneBase {
         anchors.fill: parent
     }
 
-    PhysicsWorld{
-        gravity: Qt.point(0, 25)
-        debugDrawVisible: false // enable this for physics debugging
-        z: 1000
-
-        onPreSolve: {
-          //this is called before the Box2DWorld handles contact events
-          var entityA = contact.fixtureA.getBody().target
-          var entityB = contact.fixtureB.getBody().target
-          if(entityB.entityType === "platform" && entityA.entityType === "player" &&
-              entityA.y + entityA.height > entityB.y) {
-            //by setting enabled to false, they can be filtered out completely
-            //-> disable cloud platform collisions when the player is below the platform
-            contact.enabled = false
-          }
-        }
+    GameLogic{
+        id:gamelogic
     }
 
     Row{
@@ -75,6 +62,12 @@ SceneBase {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
+    Badminton{
+        id:badminton
+        x: 400
+        y: 405
+    }
+
 
     Keys.forwardTo: [controller1,controller2]
 
@@ -82,19 +75,28 @@ SceneBase {
         id:player1
 
         TwoAxisController{
-            id: controller1
-            inputActionsToKeyCode: {
-                "up": Qt.Key_W,
-                "down": Qt.Key_S,
-                "left": Qt.Key_A,
-                "right": Qt.Key_D,
-            }
-            onInputActionPressed: {
-              player1.palyer1Contorl(actionName);
-            }
-            onInputActionReleased: {
+          id: controller1
+          inputActionsToKeyCode: {
+             "up": Qt.Key_W,
+             "down": Qt.Key_S,
+             "left": Qt.Key_A,
+             "right": Qt.Key_D,
+          }
+          onInputActionPressed: {
+            player1.player1Contorl(actionName);
+          }
+          onInputActionReleased: {
+            if (actionName == "left"){
+                if(!isPressed("right")){
                 player1.keyRelessed();
-            }
+                }
+          }
+          if (actionName == "right"){
+          if(!isPressed("left")){
+                player1.keyRelessed();
+                }
+              }
+          }
         }
 
     }
@@ -105,10 +107,19 @@ SceneBase {
         TwoAxisController{
           id: controller2
           onInputActionPressed: {
-              player2.palyer2Contorl(actionName);
+              player2.player2Contorl(actionName);
             }
           onInputActionReleased: {
-              player2.keyRelessed();
+              if (actionName == "left"){
+                  if(!isPressed("right")){
+                    player2.keyRelessed();
+                  }
+              }
+              if (actionName == "right"){
+                  if(!isPressed("left")){
+                    player2.keyRelessed();
+                  }
+              }
           }
         }
     }

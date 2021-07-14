@@ -5,7 +5,7 @@ Item{
     id:player1
 
     property int contacts: 0
-    state: contacts > 0 ? "walking" : "jumping"
+    state: contacts > 0 ? "standing" : "jumping"
 
     Image {
         //玩家1击球
@@ -29,16 +29,33 @@ Item{
         source: "../../assets/res/player1runright/player1runright.png"
         visible: false
     }
+    Image {
+        id: player1jump
+        source: "../../assets/res/jumpIMG/jumpright.png"
+        visible: false
+    }
+    Image {
+        id: player1stand
+        source: "../../assets/res/standright.png"
+        visible: false
+    }
 
     //精灵表单，用于表示player的各种动作
     EntityBase{
           x: 200
           y: 405
+          entityType: "player"
 
-          BoxCollider{
-            id:player1Collider
-            width: 150
-            height: 150
+          PolygonCollider {
+            id: player1Collider
+
+            vertices: [
+               Qt.point(65,0),
+               Qt.point(70,150),
+               Qt.point(75,150),
+               Qt.point(70,0)
+            ]
+
             fixedRotation: true
             // apply the horizontal value of the TwoAxisController as force to move the player left and right
             force: Qt.point(controller1.xAxis*170*32,0)
@@ -47,14 +64,32 @@ Item{
               if(linearVelocity.x > 170) linearVelocity.x = 170
               if(linearVelocity.x < -170) linearVelocity.x = -170
             }
+            fixture.onBeginContact: {
+              var otherEntity = other.getBody().target
+              if(otherEntity.entityType === "ground") player1.contacts++
+            }
+            fixture.onEndContact: {
+              var otherEntity = other.getBody().target
+              if(otherEntity.entityType === "ground") player1.contacts--
+            }
           }
 
           SpriteSequence {
           id: sequence
-          width: 100
-          height: 100
+          width: 150
+          height: 150
           running: false
           sprites: [
+
+            Sprite {
+                  name: "stand"
+                  frameCount: 1
+                  frameRate: 1
+
+                  frameWidth: player1stand
+                  frameHeight: player1stand
+                  source: player1stand.source
+             },
              Sprite {
                   name: "beatright"
                   frameCount: 4
@@ -90,9 +125,19 @@ Item{
                   frameWidth: player1runrightImage.width/3
                   frameHeight: player1runrightImage.height
                   source: "../../assets/res/player1runright/player1runright.png"
+              },
+              Sprite {
+                name: "jumpright"
+                frameCount: 1
+                frameRate: 1
+
+                frameWidth: player1jump
+                frameHeight: player1jump
+                source: player1jump.source
               }
           ]
         }
+
         Timer {
           id: updateTimer
           // set this interval as high as possible to improve performance, but as low as needed so it still looks good
@@ -110,12 +155,13 @@ Item{
         }
     }
 
-    function palyer1Contorl(){
+    function player1Contorl(){
         switch(arguments[0])
          {
          case "up":
-             sequence.running = false;
              jump();
+             sequence.jumpTo("jumpright");
+             sequence.running = true;
              break;
          case "down":
              sequence.jumpTo("beatright");
@@ -135,15 +181,14 @@ Item{
     }
 
     function jump() {
-      console.debug("jump requested at player.state " + state)
-      if(player.state === "walking") {
-        console.debug("do the jump")
+      if(player1.state === "standing") {
         // for the jump, we simply set the upwards velocity of the collider
-        collider.linearVelocity.y = -420
+        player1Collider.linearVelocity.y = -420
       }
     }
 
     function keyRelessed(){
+        sequence.jumpTo("stand");
         sequence.running = false;
     }
 }
