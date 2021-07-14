@@ -8,17 +8,15 @@ EntityBase {
 
    Image {
        id: badmintionImage
-       width: 50
-       height: 200
+       width: 30
+       height: 30
        source: "../../assets/res/ball.png"
    }
 
    CircleCollider {
      id: collider
      radius: badmintionImage.width/2
-     anchors.centerIn: netBoay
-     bodyType: Body.Static
-     collisionTestingOnlyMode: true
+     fixedRotation: true
      fixture.onBeginContact: {
        player.gameOver()
      }

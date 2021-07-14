@@ -26,8 +26,8 @@ EntityBase {
      ]
 
      bodyType: Body.Static
-     fixture.onBeginContact: {
+     /*fixture.onBeginContact: {
        player.gameOver()
-     }
+     }*/
    }
 }

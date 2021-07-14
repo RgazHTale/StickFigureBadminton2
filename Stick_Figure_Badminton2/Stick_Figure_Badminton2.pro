@@ -66,5 +66,6 @@ DISTFILES += \
     qml/entities/Net.qml \
     qml/entities/Player1.qml \
     qml/entities/Player2.qml \
+    qml/game/GameLogic.qml \
     qml/scenes/GameScene.qml \
     qml/scenes/SettingScene.qml
