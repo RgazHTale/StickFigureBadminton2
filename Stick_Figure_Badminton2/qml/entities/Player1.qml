@@ -4,6 +4,12 @@ import Felgo 3.0
 Item{
     id:player1
 
+    property alias entityx: entity.x
+    property alias entityy: entity.y
+
+    property alias running: entity.running
+
+    //设置一个状态标志，防止人物无限制地跳跃
     property int contacts: 0
     state: contacts > 0 ? "standing" : "jumping"
 
@@ -42,13 +48,30 @@ Item{
 
     //精灵表单，用于表示player的各种动作
     EntityBase{
+          id: entity
           x: 200
           y: 405
           entityType: "player"
 
+          property alias running: sequence.running
+
+          Image {
+              id: badmintionImage
+              rotation: 60
+              x: 85
+              y: 95
+              z: 1
+              width: 25
+              height: 25
+              source: "../../assets/res/ball.png"
+          }
+
           PolygonCollider {
             id: player1Collider
 
+            //我们需要设置物体之间的摩擦力为0,以防止人物卡在墙上    
+            fixture.friction: 0
+            //fixture.restitution: 1
             vertices: [
                Qt.point(65,0),
                Qt.point(70,150),
@@ -164,7 +187,12 @@ Item{
              sequence.running = true;
              break;
          case "down":
-             sequence.jumpTo("beatright");
+             if(gameScene.badminton.y > entity.y + 30){
+                sequence.jumpTo("hitright");
+             }else{
+                sequence.jumpTo("beatright");
+             }
+             gamelogic.hitright();
              sequence.running = true;
              break;
          case "left":

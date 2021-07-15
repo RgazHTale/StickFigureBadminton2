@@ -6,6 +6,11 @@ import "../game"
 
 SceneBase {
     id:gameScene
+
+    property bool downIsPressed: false
+
+    property alias badminton: badminton
+
     Background{
         id:background
         anchors.fill: parent
@@ -64,10 +69,11 @@ SceneBase {
 
     Badminton{
         id:badminton
-        x: 400
-        y: 405
+        //x: player1.entityx + 100
+        //y: player1.entityy - 5
+        x:400
+        y:600
     }
-
 
     Keys.forwardTo: [controller1,controller2]
 
@@ -84,6 +90,7 @@ SceneBase {
           }
           onInputActionPressed: {
             player1.player1Contorl(actionName);
+            console.debug("key pressed actionName " + actionName)
           }
           onInputActionReleased: {
             if (actionName == "left"){
@@ -91,11 +98,17 @@ SceneBase {
                 player1.keyRelessed();
                 }
           }
-          if (actionName == "right"){
-          if(!isPressed("left")){
+            if (actionName == "right"){
+                if(!isPressed("left")){
                 player1.keyRelessed();
                 }
-              }
+          }
+            if (actionName == "down"){
+                if(!isPressed("left") && !isPressed("right")){
+                player1.keyRelessed();
+                }
+            }
+            console.debug("key released actionName " + actionName)
           }
         }
 
