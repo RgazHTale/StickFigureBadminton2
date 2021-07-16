@@ -39,6 +39,13 @@ GameWindow {
     }
   }
 
+  WaitScreen{
+      id:waitToPlay
+      onClicked: {
+          window.state = "game"
+      }
+  }
+
   //game scene
   //实例化之后才能用
   GameScene {
@@ -51,6 +58,14 @@ GameWindow {
       onBackButtonPressed: window.state = "menu"
   }
 
+  PauseScene {
+      id:pauseScene
+  }
+
+  GameOver {
+      id:gameoverScene
+  }
+
   state: "menu"
   activeScene: menuScene
 
@@ -61,16 +76,16 @@ GameWindow {
       PropertyChanges {target: menuScene; opacity: 1}
       PropertyChanges {target: window; activeScene: menuScene}
     },
-    State {
-      name: "selectLevel"
-      PropertyChanges {target: selectLevelScene; opacity: 1}
-      PropertyChanges {target: window; activeScene: selectLevelScene}
-    },
-    State {
-      name: "credits"
-      PropertyChanges {target: creditsScene; opacity: 1}
-      PropertyChanges {target: window; activeScene: creditsScene}
-    },
+      State {
+        name: "pause"
+        PropertyChanges {target: pauseScene; opacity: 1}
+        PropertyChanges {target: window; activeScene: pauseScene}
+      },
+      State {
+        name: "gameover"
+        PropertyChanges {target: gameoverScene; opacity: 1}
+        PropertyChanges {target: window; activeScene: gameoverScene}
+      },
     State {
       name: "settings"
       PropertyChanges {target: settingScene; opacity: 1}
@@ -80,6 +95,11 @@ GameWindow {
       name: "game"
       PropertyChanges {target: gameScene; opacity: 1}
       PropertyChanges {target: window; activeScene: gameScene}
-    }
+      },
+      State {
+        name: "wait"
+        PropertyChanges {target: waitToPlay; opacity: 1}
+        PropertyChanges {target: window; activeScene: waitToPlay}
+      }
   ]
 }

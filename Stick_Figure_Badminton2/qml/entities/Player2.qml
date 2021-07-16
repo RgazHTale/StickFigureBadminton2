@@ -4,7 +4,12 @@ import Felgo 3.0
 Item{
     id:player2
 
+    property alias entityx: entity.x
+    property alias entityy: entity.y
+
     property int contacts: 0
+    property int flag: 0
+
     state: contacts > 0 ? "standing" : "jumping"
 
     Image {
@@ -42,18 +47,18 @@ Item{
 
     //精灵表单，用于表示player的各种动作
     EntityBase{
-          x: 700
-          y: 405
+          id: entity
           entityType: "player"
 
           PolygonCollider {
             id: player2Collider
 
+            fixture.friction: 0
             vertices: [
-               Qt.point(65,0),
+               Qt.point(75,30),
                Qt.point(70,150),
                Qt.point(75,150),
-               Qt.point(70,0)
+               Qt.point(80,30)
             ]
 
             fixedRotation: true
@@ -67,6 +72,7 @@ Item{
             fixture.onBeginContact: {
               var otherEntity = other.getBody().target
               if(otherEntity.entityType === "ground") player2.contacts++
+              hitleft();
             }
             fixture.onEndContact: {
               var otherEntity = other.getBody().target
@@ -162,7 +168,16 @@ Item{
              sequence.running = true;
              break;
          case "down":
-             sequence.jumpTo("beatleft");
+             if(flag == 1){
+                 sequence.jumpTo("hitleft");
+                 startGame();
+                 flag = 0;
+             }
+             if(badminton.y > entityy + 30){
+                sequence.jumpTo("hitleft");
+             }else{
+                sequence.jumpTo("beatleft");
+             }
              sequence.running = true;
              break;
          case "left":
@@ -188,5 +203,26 @@ Item{
     function keyRelessed(){
         sequence.jumpTo("stand");
         sequence.running = false;
+    }
+
+    function beatleft(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        var localForwardVector = badminton.collider.body.toWorldVector(Qt.point(-300, -600));
+        badminton.collider.body.applyLinearImpulse(localForwardVector, badminton.collider.body.getWorldCenter());
+    }
+
+    function hitleft(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        var localForwardVector = badminton.collider.body.toWorldVector(Qt.point(-300, -600));
+        badminton.collider.body.applyLinearImpulse(localForwardVector, badminton.collider.body.getWorldCenter());
+    }
+
+    function startGame(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        badminton.visible = true;
+        badminton.x = player2.entityx + 40;
+        badminton.y = player2.entityy + 110;
+        hitleft();
+        badminton.collider.gravityScale = 1;
     }
 }

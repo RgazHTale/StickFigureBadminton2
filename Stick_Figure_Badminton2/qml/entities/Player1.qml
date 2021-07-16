@@ -7,10 +7,13 @@ Item{
     property alias entityx: entity.x
     property alias entityy: entity.y
 
-    property alias running: entity.running
-
     //设置一个状态标志，防止人物无限制地跳跃
     property int contacts: 0
+    property int flag: 1
+
+    signal hit
+    signal beat
+
     state: contacts > 0 ? "standing" : "jumping"
 
     Image {
@@ -21,7 +24,7 @@ Item{
     }
     Image {
         //玩家1跳起时击球
-        id: hitleftImage
+        id: hitrightImage
         source: "../../assets/res/hitright/hitright.png"
         visible: false
     }
@@ -49,34 +52,18 @@ Item{
     //精灵表单，用于表示player的各种动作
     EntityBase{
           id: entity
-          x: 200
-          y: 405
           entityType: "player"
-
-          property alias running: sequence.running
-
-          Image {
-              id: badmintionImage
-              rotation: 60
-              x: 85
-              y: 95
-              z: 1
-              width: 25
-              height: 25
-              source: "../../assets/res/ball.png"
-          }
 
           PolygonCollider {
             id: player1Collider
 
             //我们需要设置物体之间的摩擦力为0,以防止人物卡在墙上    
             fixture.friction: 0
-            //fixture.restitution: 1
             vertices: [
-               Qt.point(65,0),
+               Qt.point(65,30),
                Qt.point(70,150),
                Qt.point(75,150),
-               Qt.point(70,0)
+               Qt.point(70,30)
             ]
 
             fixedRotation: true
@@ -90,6 +77,7 @@ Item{
             fixture.onBeginContact: {
               var otherEntity = other.getBody().target
               if(otherEntity.entityType === "ground") player1.contacts++
+              if(gamelogic.isContact) hitright();
             }
             fixture.onEndContact: {
               var otherEntity = other.getBody().target
@@ -103,7 +91,6 @@ Item{
           height: 150
           running: false
           sprites: [
-
             Sprite {
                   name: "stand"
                   frameCount: 1
@@ -187,12 +174,16 @@ Item{
              sequence.running = true;
              break;
          case "down":
-             if(gameScene.badminton.y > entity.y + 30){
-                sequence.jumpTo("hitright");
-             }else{
-                sequence.jumpTo("beatright");
+             if(flag == 1){
+                 sequence.jumpTo("hitright");
+                 startGame();
+                 flag = 0;
              }
-             gamelogic.hitright();
+             if(badminton.y > entityy + 30){
+                 sequence.jumpTo("hitright");
+             }else{
+                 sequence.jumpTo("beatright");
+             }
              sequence.running = true;
              break;
          case "left":
@@ -218,5 +209,27 @@ Item{
     function keyRelessed(){
         sequence.jumpTo("stand");
         sequence.running = false;
+    }
+
+    //不同的击球情况对球体施加不同的脉冲
+    function beatright(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        var localForwardVector = badminton.collider.body.toWorldVector(Qt.point(300, -600));
+        badminton.collider.body.applyLinearImpulse(localForwardVector, badminton.collider.body.getWorldCenter());
+    }
+
+    function hitright(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        var localForwardVector = badminton.collider.body.toWorldVector(Qt.point(300, -600));
+        badminton.collider.body.applyLinearImpulse(localForwardVector, badminton.collider.body.getWorldCenter());
+    }
+
+    function startGame(){
+        badminton.collider.body.linearVelocity = Qt.point(0,0);
+        badminton.visible = true;
+        badminton.x = player1.entityx + 85;
+        badminton.y = player1.entityy + 90;
+        hitright();
+        badminton.collider.gravityScale = 1;
     }
 }

@@ -3,9 +3,12 @@ import Felgo 3.0
 
 EntityBase {
    entityType: "badmintion"
-   entityId: "badmintion"
 
    property alias collider: collider
+
+   x: 200
+   y: 100
+   visible: false
 
    Image {
        id: badmintionImage
@@ -19,21 +22,33 @@ EntityBase {
      radius: badmintionImage.width/2
      fixedRotation: true
      fixture.friction: 0.5
-     fixture.restitution: 0.5
-     //gravityScale: 0.1
+     gravityScale: 0
      body.linearVelocity: Qt.point(0,0)
-     /*fixture.onBeginContact: {
-         collider.linearVelocity.y = -620
-         collider.linearVelocity.x = 300
-     }*/
      bullet: true
+     fixture.onBeginContact:{
+        var otherEntity = other.getBody().target;
+        if(otherEntity.entityType === "wall" || otherEntity.entityType === "ground"){
+            if(badminton.x > gameScene.width/2 && gameScene.time != 0){
+                score.score1++;
+                badminton.visible = false;
+                player1Start();
+            }else{
+                if(gameScene.time != 0){
+                    score.score2++;
+                    badminton.visible = false;
+                    player2Start();
+                }
+            }
+        };
+     }
    }
 
-   //Component.onCompleted: {
-       //var localForwardVector = collider.body.toWorldVector(Qt.point(300, -600));
-       //collider.body.applyLinearImpulse(localForwardVector, collider.body.getWorldCenter());
-       //collider.linearVelocity.y = -620
-       //collider.linearVelocity.x = 300
-       //console.debug("1111111111");
-//}
+   function player1Start(){
+        player1.flag = 1;
+   }
+
+   function player2Start(){
+        player2.flag = 1;
+   }
+
 }

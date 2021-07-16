@@ -66,6 +66,11 @@ DISTFILES += \
     qml/entities/Net.qml \
     qml/entities/Player1.qml \
     qml/entities/Player2.qml \
+    qml/entities/Score.qml \
     qml/game/GameLogic.qml \
+    qml/scenes/GameNetworkScene.qml \
+    qml/scenes/GameOver.qml \
     qml/scenes/GameScene.qml \
-    qml/scenes/SettingScene.qml
+    qml/scenes/PauseScene.qml \
+    qml/scenes/SettingScene.qml \
+    qml/scenes/WaitScreen.qml

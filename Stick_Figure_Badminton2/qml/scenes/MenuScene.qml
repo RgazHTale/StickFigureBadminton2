@@ -2,7 +2,8 @@ import Felgo 3.0
 import QtQuick 2.0
 import QtMultimedia 5.0
 import "../common"
-import ".."
+import "../entities"
+import "../game"
 
 // 这是主菜单
 SceneBase {
@@ -28,8 +29,8 @@ SceneBase {
         running: true//If set to true, starts the timer
         repeat: true
         onTriggered: {
-            ambienceMusic.play()//开始播放媒体
-            running = false
+            ambienceMusic.play();//开始播放媒体
+            running = false;
         }
     }
 
@@ -50,8 +51,9 @@ SceneBase {
         anchors.leftMargin: 725
         text: "Start"
         onClicked: {
-            onClickedMusic.play()
-            window.state = "game"
+            window.state = "wait";
+            onClickedMusic.play();
+            reStart();
         }
         color: "transparent"
         buttonText.color: "white"
@@ -90,7 +92,14 @@ SceneBase {
         label.source: "../../assets/res/Settings.png"
         anchors.bottom: parent.bottom
         onClicked: {
-            window.state = "settings"
+            window.state = "settings";
         }
+    }
+
+    function reStart(){
+        gameScene.player1.entityx = 200;
+        gameScene.player1.entityy = 405;
+        gameScene.player2.entityx = 600;
+        gameScene.player2.entityy = 405;
     }
 }
