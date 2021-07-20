@@ -116,7 +116,7 @@ Item{
               Sprite {
                   name: "player2runleft"
                   frameCount: 6
-                  frameRate: 10
+                  frameRate: 20
 
                   frameWidth: player2runleftImage.width/6
                   frameHeight: player2runleftImage.height
@@ -124,10 +124,13 @@ Item{
               },
               Sprite {
                   name: "player2runright"
-                  frameCount: 5
-                  frameRate: 10
+                  frameCount: 6
+                  frameRate: 20
 
-                  frameWidth: player2runrightImage.width/5
+                  //frameWidth: player2runleftImage.width/6
+                  //frameHeight: player2runleftImage.height
+                  //source: "../../assets/res/player2runleft/player2runleft.png"
+                  frameWidth: player2runrightImage.width/6
                   frameHeight: player2runrightImage.height
                   source: "../../assets/res/player2runright/player2runright.png"
               },

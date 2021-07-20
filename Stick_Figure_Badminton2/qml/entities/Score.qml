@@ -14,7 +14,7 @@ EntityBase {
 
     Image {
         id: background
-        source: "../../assets/res/s.png"
+        source: "../../assets/res/Black_background.png"
         anchors.fill: parent
     }
 
@@ -40,21 +40,6 @@ EntityBase {
             text: score2
             color: "red"
             font.pixelSize: 50
-        }
-    }
-
-    //判定获胜者
-    function compare(){
-        if(score1 > score2){
-            player = "player1";
-            champion= "The winner is player1";
-        }
-        if(score1 < score2){
-            player = "player2";
-           champion= "The winner is player2";
-        }
-        if(score1 == score2){
-            champion = "Dogfall!";
         }
     }
 }

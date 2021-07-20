@@ -13,6 +13,7 @@ Item {
         id:physicsWorld
         gravity: Qt.point(0, 25)
         updatesPerSecondForPhysics:60
+        debugDrawVisible: true
         velocityIterations: 5
         positionIterations: 5
         z: 1000

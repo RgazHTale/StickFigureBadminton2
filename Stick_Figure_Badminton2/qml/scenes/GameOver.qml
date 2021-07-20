@@ -11,8 +11,8 @@ SceneBase {
 
     property string player
     property string champion
-
-    champion : score.compare()
+    property alias score1: score.score1
+    property alias score2: score.score2
 
     Image {
         id: gameOver
@@ -27,6 +27,8 @@ SceneBase {
         anchors.horizontalCenter: parent.horizontalCenter
         score1: gameScene.score.score1
         score2: gameScene.score.score2
+        onScore1Changed: compare()
+        onScore2Changed: compare()
     }
 
     Column{
@@ -89,6 +91,19 @@ SceneBase {
             buttonText.font.pixelSize: 40
             buttonText.font.family: standardFont.name
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+
+    //判定获胜者
+    function compare(){
+        if(score1 > score2){
+            champion = "The winner is player1!";
+        }
+        if(score1 < score2){;
+           champion = "The winner is player2!";
+        }
+        if(score1 == score2){
+           champion = "Dogfall!";
         }
     }
 }

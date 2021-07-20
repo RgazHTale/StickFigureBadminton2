@@ -7,7 +7,7 @@ import "../game"
 SceneBase {
     id:gameScene
 
-    property int time : 120
+    property int time : 5
     // indicates if game is running
     property bool gameRunning: false
     property bool player1DownIsPressed: false
@@ -121,8 +121,8 @@ SceneBase {
         onTriggered: {
                 time--
             if(time == 0 ){
-                window.state = "gameover"
-                gameRunning = false
+                window.state = "gameover";
+                gameRunning = false;
             }
         }
     }
@@ -189,9 +189,11 @@ SceneBase {
           id: controller2
           onInputActionPressed: {
               player2.player2Contorl(actionName);
+              console.debug("key pressed actionName " + actionName);
               if(actionName == "down") player2DownIsPressed = true;
             }
           onInputActionReleased: {
+              console.debug("key released actionName " + actionName)
               if (actionName == "left"){
                   if(!isPressed("right")){
                   player2.keyRelessed();

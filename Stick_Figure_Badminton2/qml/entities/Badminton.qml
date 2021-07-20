@@ -45,10 +45,12 @@ EntityBase {
 
    function player1Start(){
         player1.flag = 1;
+        gamelogic.isContact = true;
    }
 
    function player2Start(){
         player2.flag = 1;
+        gamelogic.isContact = true;
    }
 
 }

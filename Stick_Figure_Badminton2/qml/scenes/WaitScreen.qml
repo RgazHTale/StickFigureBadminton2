@@ -11,7 +11,7 @@ SceneBase {
 
     Image {
         id: waitScreen
-        source: "../../assets/res/wait2.png"
+        source: "../../assets/res/wait.png"
         anchors.fill: parent
     }
 
