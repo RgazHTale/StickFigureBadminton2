@@ -7,7 +7,7 @@ import "../game"
 SceneBase {
     id:gameScene
 
-    property int time : 40
+    property int time : 5
     // indicates if game is running
     property bool gameRunning: false
     property bool player1DownIsPressed: false
@@ -132,20 +132,6 @@ SceneBase {
         z: 1
     }
 
-    Timer {
-        running: true
-        interval: 30
-        repeat: true
-        onTriggered: {
-            if(player1DownIsPressed == true ){
-                player1DownIsPressed == false;
-            }
-            if(player2DownIsPressed == true ){
-                player2DownIsPressed == false;
-            }
-        }
-    }
-
     Keys.forwardTo: [controller1,controller2]
 
     Player1{
@@ -159,11 +145,14 @@ SceneBase {
              "left": Qt.Key_A,
              "right": Qt.Key_D,
           }
-          onInputActionPressed: {
+          onInputActionPressed: {              
             player1.player1Contorl(actionName);
             if(actionName == "down") player1DownIsPressed = true;
           }
           onInputActionReleased: {
+            if(player1DownIsPressed == true ){
+                player1DownIsPressed = false;
+                }
             if (actionName == "left"){
                 if(!isPressed("right")){
                 player1.keyRelessed();
@@ -189,11 +178,12 @@ SceneBase {
           id: controller2
           onInputActionPressed: {
               player2.player2Contorl(actionName);
-              console.debug("key pressed actionName " + actionName);
               if(actionName == "down") player2DownIsPressed = true;
             }
           onInputActionReleased: {
-              console.debug("key released actionName " + actionName)
+              if(player2DownIsPressed == true ){
+                  player2DownIsPressed = false;
+              }
               if (actionName == "left"){
                   if(!isPressed("right")){
                   player2.keyRelessed();

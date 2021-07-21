@@ -7,13 +7,14 @@ import "../game"
 Item {
     id:gamelogic
 
+    //这个property用来检测是否可以发生碰撞
+    //如果这个为真，player碰到球之后才会击球
     property bool isContact: true
 
     PhysicsWorld{
         id:physicsWorld
         gravity: Qt.point(0, 25)
         updatesPerSecondForPhysics:60
-        debugDrawVisible: true
         velocityIterations: 5
         positionIterations: 5
         z: 1000
@@ -23,11 +24,11 @@ Item {
             //this is called before the Box2DWorld handles contact events
             var entityA = contact.fixtureA.getBody().target
             var entityB = contact.fixtureB.getBody().target
-            if(entityB.entityType === "badmintion" && entityA.entityType === "player" && !gameScene.player1DownIsPressed) {
+            if(entityB.entityType === "badmintion" && entityA.entityType === "player1" && !gameScene.player1DownIsPressed) {
               isContact = false;
               contact.enabled = false;
            }
-            if(entityB.entityType === "badmintion" && entityA.entityType === "player" && !gameScene.player2DownIsPressed) {
+            if(entityB.entityType === "badmintion" && entityA.entityType === "player2" && !gameScene.player2DownIsPressed) {
               isContact = false;
               contact.enabled = false;
            }

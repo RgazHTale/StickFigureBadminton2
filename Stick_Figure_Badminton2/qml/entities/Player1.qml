@@ -52,7 +52,7 @@ Item{
     //精灵表单，用于表示player的各种动作
     EntityBase{
           id: entity
-          entityType: "player"
+          entityType: "player1"
 
           PolygonCollider {
             id: player1Collider
@@ -62,7 +62,7 @@ Item{
             vertices: [
                Qt.point(65,30),
                Qt.point(70,150),
-               Qt.point(75,150),
+               Qt.point(140,100),
                Qt.point(70,30)
             ]
 
@@ -224,12 +224,17 @@ Item{
         badminton.collider.body.applyLinearImpulse(localForwardVector, badminton.collider.body.getWorldCenter());
     }
 
+    //发球
     function startGame(){
         badminton.collider.body.linearVelocity = Qt.point(0,0);
         badminton.visible = true;
-        badminton.x = player1.entityx + 85;
+        badminton.x = player1.entityx + 121;
         badminton.y = player1.entityy + 90;
         hitright();
         badminton.collider.gravityScale = 1;
+    }
+
+    function reSetPlayer(){
+        player1Collider.force = 0;
     }
 }

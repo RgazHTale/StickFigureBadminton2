@@ -48,7 +48,7 @@ Item{
     //精灵表单，用于表示player的各种动作
     EntityBase{
           id: entity
-          entityType: "player"
+          entityType: "player2"
 
           PolygonCollider {
             id: player2Collider
@@ -56,7 +56,7 @@ Item{
             fixture.friction: 0
             vertices: [
                Qt.point(75,30),
-               Qt.point(70,150),
+               Qt.point(10,100),
                Qt.point(75,150),
                Qt.point(80,30)
             ]
@@ -72,7 +72,7 @@ Item{
             fixture.onBeginContact: {
               var otherEntity = other.getBody().target
               if(otherEntity.entityType === "ground") player2.contacts++
-              hitleft();
+              if(gamelogic.isContact) hitleft();
             }
             fixture.onEndContact: {
               var otherEntity = other.getBody().target
@@ -223,7 +223,7 @@ Item{
     function startGame(){
         badminton.collider.body.linearVelocity = Qt.point(0,0);
         badminton.visible = true;
-        badminton.x = player2.entityx + 40;
+        badminton.x = player2.entityx - 10;
         badminton.y = player2.entityy + 110;
         hitleft();
         badminton.collider.gravityScale = 1;
