@@ -7,7 +7,7 @@ import "../game"
 SceneBase {
     id:gameScene
 
-    property int time : 5
+    property int time : 40
     // indicates if game is running
     property bool gameRunning: false
     property bool player1DownIsPressed: false
