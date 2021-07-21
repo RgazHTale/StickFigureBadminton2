@@ -96,8 +96,8 @@ Item{
                   frameCount: 1
                   frameRate: 1
 
-                  frameWidth: player1stand
-                  frameHeight: player1stand
+                  frameWidth: player1stand.width
+                  frameHeight: player1stand.height
                   source: player1stand.source
              },
              Sprite {
@@ -141,8 +141,8 @@ Item{
                 frameCount: 1
                 frameRate: 1
 
-                frameWidth: player1jump
-                frameHeight: player1jump
+                frameWidth: player1jump.width
+                frameHeight: player1jump.height
                 source: player1jump.source
               }
           ]

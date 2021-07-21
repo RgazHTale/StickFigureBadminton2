@@ -36,8 +36,8 @@ SceneBase {
             color: "transparent"
             width: 40
             height: 40
-            anchors.top: parent.top
-            anchors.left: parent.left
+            //anchors.top: parent.top
+            //anchors.left: parent.left
             anchors.topMargin: 15
             anchors.leftMargin: 10
             label.source: "../../assets/res/ArrowLeft.png"
@@ -54,10 +54,10 @@ SceneBase {
             id: soundButton
             property bool gameRunning: false
             color: "transparent"
-            width: 50
-            height: 50
-            anchors.top: parent.top
-            anchors.left: parent.left
+            width: 40
+            height: 40
+            //anchors.top: parent.top
+            //anchors.left: parent.left
             anchors.topMargin: 10
             anchors.leftMargin: 60
             label.source: "../../assets/res/Sound.png"
@@ -72,8 +72,8 @@ SceneBase {
             color: "transparent"
             width: 40
             height: 40
-            anchors.top: parent.top
-            anchors.left: parent.left
+            //anchors.top: parent.top
+            //anchors.left: parent.left
             anchors.topMargin: 15
             anchors.leftMargin: 125
             label.source: "../../assets/res/playAgain.png"

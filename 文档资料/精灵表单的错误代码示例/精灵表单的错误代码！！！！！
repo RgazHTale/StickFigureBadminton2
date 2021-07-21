@@ -1,0 +1,316 @@
+ 
+import QtQuick 2.0
+import Felgo 3.0
+import "../common"
+import "../entities"
+
+SceneBase {
+    id:gameScene
+    Background{
+        id:background
+        anchors.fill: parent
+    }
+
+    PhysicsWorld{
+        gravity: Qt.point(0, 25)
+        debugDrawVisible: true // enable this for physics debugging
+        z: 1000
+
+        onPreSolve: {
+          //this is called before the Box2DWorld handles contact events
+          var entityA = contact.fixtureA.getBody().target
+          var entityB = contact.fixtureB.getBody().target
+          if(entityB.entityType === "platform" && entityA.entityType === "player" &&
+              entityA.y + entityA.height > entityB.y) {
+            //by setting enabled to false, they can be filtered out completely
+            //-> disable cloud platform collisions when the player is below the platform
+            contact.enabled = false
+          }
+        }
+    }
+
+    Row{
+        id:tools
+        spacing: 10
+
+        MenuButton {
+            id: backButton
+            color: "transparent"
+            width: 40
+            height: 40
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.topMargin: 15
+            anchors.leftMargin: 10
+            label.source: "../../assets/res/ArrowLeft.png"
+
+            onClicked: {
+                window.state = "menu"
+                }
+            }
+
+      //button to tggle the sound effects
+        MenuButton {
+            color: "transparent"
+            width: 50
+            height: 50
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.topMargin: 10
+            anchors.leftMargin: 60
+            label.source: "../../assets/res/Sound.png"
+            active: ! settings.musicEnabled
+            opacity: 1
+            onClicked:  {
+                settings.musicEnabled ^= true
+                }
+            }
+        }
+
+
+    Net{
+        id:net
+        width: 30
+        height: 200
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+
+    Keys.forwardTo: [controller2]
+
+    Player{
+        anchors.centerIn: parent
+        id:player1
+
+        /*TwoAxisController{
+            id: controller1
+            onInputActionPressed: {
+              console.debug("player1 key pressed actionName " + actionName)
+            }
+        }*/
+
+    }
+
+ /*   Image {
+        id: image1;
+        visible: false
+        source: "../../assets/res/beatleft/beatleft.png";
+    }
+    SpriteSequence {
+        id: sequence;
+        width: 100;
+        height: 100;
+        interpolate: true;
+        running: false;
+        sprites: [
+            Sprite {
+                name: "down";
+                source: image1.source;
+                frameCount: 4;
+                frameWidth: image1.width/4;
+                frameHeight: image1.height;
+                frameRate: 10;
+            },
+            Sprite {
+                name: "left";
+                source: image1.source;
+                frameCount: 4;
+                frameY: image1.height/4;
+                frameWidth: image1.width/4;
+                frameHeight: image1.height/4;
+                frameRate: 10;
+            },
+            Sprite {
+                name: "right";
+                source: image1.source;
+                frameCount: 4;
+                frameY: image1.height/4*2;
+                frameWidth: image1.width/4;
+                frameHeight: image1.height/4;
+                frameRate: 10;
+            },
+            Sprite {
+                name: "up";
+                source: image1.source;
+                frameCount: 4;
+                frameY: image1.height/4*3;
+                frameWidth: image1.width/4;
+                frameHeight: image1.height/4;
+                frameRate: 10;
+            }
+        ]
+        Component.onCompleted: {
+            sequence.jumpTo("down");
+            sequence.running = true;
+        }
+    }*/
+
+    Player{
+        id:player2
+        anchors.centerIn: parent
+        Image {
+            id: beatleftImage
+            source: "../../assets/res/beatleft/beatleft.png"
+            visible: false
+        }
+        Image {
+            id: hitleftImage
+            source: "../../assets/res/hitleft/hitleft.png"
+            visible: false
+        }
+        Image {
+            id: player2runleftImage
+            source: "../../assets/res/player2runleft/player2runleft.png"
+            visible: false
+        }
+        Image {
+            id: player2runrightImage
+            source: "../../assets/res/player2runright/player2runright.png"
+            visible: false
+        }
+        /*Image {
+            id: image1;
+            visible: false
+            source: "../../assets/res/beatleft/beatleft.png";
+        }*/
+        //这个地方，一旦下面的表单中含有没有完全合法定义的图片这个表单就无效
+
+            SpriteSequence {
+                id: sequence;
+                width: 100;
+                height: 100;
+                interpolate: true;
+                running: false;
+                sprites: [
+                    Sprite {
+                        name: "down";
+                        source: beatleftImage.source;
+                        frameCount: 4;
+                        frameWidth: beatleftImage.width/4;
+                        frameHeight: beatleftImage.height;
+                        frameRate: 10;
+                    }/*,
+                    Sprite {
+                        name: "left";
+                        source: image1.source;
+                        frameCount: 4;
+                        //frameY: image1.height/4;
+                        frameWidth: image1.width/4;
+                        frameHeight: image1.height/4;
+                        frameRate: 10;
+                    },
+                    Sprite {
+                        name: "right";
+                        source: beatleftImage.source;
+                        frameCount: 4;
+                        //frameY: image1.height/4*2;
+                        frameWidth: beatleftImage.width/4;
+                        frameHeight: beatleftImage.height/4;
+                        frameRate: 10;
+                    },
+                    Sprite {
+                        name: "up";
+                        source: beatleftImage.source;
+                        frameCount: 4;
+                        //frameY: image1.height/4*3;
+                        frameWidth: beatleftImage.width/4;
+                        frameHeight: beatleftImage.height/4;
+                        frameRate: 10;
+                    }*/
+                ]
+                Component.onCompleted: {
+                    sequence.jumpTo("down");
+                    sequence.running = true;
+                }
+            }
+
+        /*SpriteSequence {
+          id: player2SpriteSequenceDemo
+          running: false
+          //anchors.centerIn: parent
+          sprites: [
+          Sprite{
+              name: "demo"
+              frameCount: 4
+              frameRate: 10
+
+              frameWidth: beatleftImage.width/4//单位是像素
+              frameHeight: beatleftImage.height
+              source: "../../assets/res/beatleft/beatleft.png"
+          }
+          ]
+          Component.onCompleted: {
+              console.debug("精灵表单初始化完成!");
+              player2SpriteSequenceDemo.jumpTo("beatleft");
+              player2SpriteSequenceDemo.running = true;
+          }
+        }*/
+
+
+
+
+            /*SpriteSequence {
+              id: player2SpriteSequence
+              width: 100
+              height: 100
+              running: false
+              sprites: [
+                 Sprite {
+                      name: "beatleft"
+                      frameCount: 4
+                      frameRate: 10
+
+                      frameWidth: beatleftImage.width/4//单位是像素
+                      frameHeight: beatleftImage.height
+                      source: "../../assets/res/beatleft/beatleft.png"
+                  },
+                  Sprite {
+                      name: "hitleft"
+                      frameCount: 5
+                      frameRate: 10
+
+                      frameWidth: hitleftImage.width/5//单位是像素
+                      frameHeight: hitleftImage.height
+                      source: "../../assets/res/hitleft/hitleft.png"
+                  },
+                  Sprite {
+                      name: "player2runleft"
+                      frameCount: 6
+                      frameRate: 10
+
+                      frameWidth: player2runleftImage.width/6
+                      frameHeight: player2runleftImage.height
+                      source: "../../assets/res/player2runleft/player2runleft.png"
+                  },
+                  Sprite {
+                      name: "player2runright"
+                      frameCount: 5
+                      frameRate: 10
+
+                      frameWidth: player2runrightImage.width/5
+                      frameHeight: player2runrightImage.height
+                      source: "../../assets/res/player2runright/player2runright.png"
+                  }
+              ]
+              Component.onCompleted: {
+                  console.debug("精灵表单初始化完成!");
+                  player2SpriteSequence.jumpTo("beatleft");
+                  player2SpriteSequence.running = true;
+              }
+            }*/
+            TwoAxisController{
+                id: controller2
+                onInputActionPressed: {
+                  console.debug("palyer2 key pressed actionName " + actionName);
+                }
+                inputActionsToKeyCode: {
+                    "up": Qt.Key_W,
+                    "down": Qt.Key_S,
+                    "left": Qt.Key_A,
+                    "right": Qt.Key_D,
+                }
+            }
+
+    }
+}

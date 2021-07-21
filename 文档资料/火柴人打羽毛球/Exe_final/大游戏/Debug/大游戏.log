@@ -1,0 +1,122 @@
+﻿生成启动时间为 2021/1/9 9:11:58。
+     1>项目“C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\大游戏\大游戏.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\大游戏.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Visual Studio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(36): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(36): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(37): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(37): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(41): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(63): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(85): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(86): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(86): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(89): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(89): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(90): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(90): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(94): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(94): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(98): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(122): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(122): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(123): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(123): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(126): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(126): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(127): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(127): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(131): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(131): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(171): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(172): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(175): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(175): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(176): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(176): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(192): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(193): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(208): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(208): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(300): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(300): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(315): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(316): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(322): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(331): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(339): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(347): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(378): warning C4018: “>=”: 有符号/无符号不匹配
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(398): warning C4018: “>=”: 有符号/无符号不匹配
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(439): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(462): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(475): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(494): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(567): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(567): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(581): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(582): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(588): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(596): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(603): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(611): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 d:\visual studio\vc\include\stdio.h(371) : 参见“sprintf”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(642): warning C4018: “>=”: 有符号/无符号不匹配
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(662): warning C4018: “>=”: 有符号/无符号不匹配
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(683): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(707): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(709): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(734): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(747): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(749): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(762): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(764): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(778): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(780): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(846): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(846): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(852): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(852): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(947): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(971): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(995): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+                 d:\visual studio\vc\include\conio.h(130) : 参见“kbhit”的声明
+     1>c:\users\1169977811\desktop\08火柴人打羽毛球  鲁康优  闫魏杰\exe_final\大游戏\main.cpp(1007): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+                 d:\visual studio\vc\include\conio.h(128) : 参见“getch”的声明
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         d:\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\Debug\大游戏.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\大游戏.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\Debug\大游戏.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\Debug\大游戏.lib" /MACHINE:X86 "Debug\大游戏.exe.embed.manifest.res"
+         Debug\main.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\大游戏.exe.embed.manifest" /manifest "Debug\大游戏.exe.intermediate.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         大游戏.vcxproj -> C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\Debug\大游戏.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\大游戏.unsuccessfulbuild”。
+         正在对“Debug\大游戏.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“C:\Users\1169977811\Desktop\08火柴人打羽毛球  鲁康优  闫魏杰\Exe_final\大游戏\大游戏.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:03.07
